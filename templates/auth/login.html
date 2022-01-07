@@ -1,0 +1,37 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% load filters__ %}
+{% block extra_links %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+{% block content %}
+<div class="login-wrapper">
+    <div class="d-flex full-height justify-content-center align-items-start">
+        <div class='form-wrapper py-3 px-5 bg-white'>
+            {% for message in messages %}
+            <div class="alert flash-alert alert-{{ message.tags|get_tag }} mt-0"
+                 role="alert">
+                {{ message.message|safe }}
+            </div>
+            {% endfor %}
+            <div class='form-header text-center'>
+                Continue to Chat App
+            </div>
+            <form class="mt-4" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username"/>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password"/>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-primary form-submit px-5">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+.message-box-wrapper.sent{
+    align-items: flex-end;
+}
+
+.message-box-wrapper.sent .message_box{
+    background: rgb(130, 204, 221);
+    clip-path: polygon(0 0, 100% 0, 96% 27%, 96% 100%, 0 100%);
+    padding-right: 0.5rem;
+
+}
+
+.message-box-wrapper.recieved{
+    justify-content: flex-start;
+}
+
+.message-box-wrapper.recieved .message_box{
+    background: rgb(250, 250, 250);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 4% 100%, 4% 27%);
+}
+
+.message_box{
+    border-radius: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.message-font{
+        font-size: 0.8rem;
+        font-family: 'Roboto', serif;
+        font-weight: 500;
+}
+
+.message-status.sent{
+    color: rgb(130, 204, 221);
+    font-size: 0.7rem;
+}
+
+.message-status.pending{
+    color: rgb(250, 10,10);
+    font-size: 0.5rem;
+}

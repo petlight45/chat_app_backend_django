@@ -1,0 +1,23 @@
+{% extends 'base_template.html' %}
+{% block content %}
+<div class="px-3 my-3 py-2 member-bg d-flex position-relative">
+    <figure class="member-img my-0 py-0 position-relative ">
+        <img src="" alt="NA"/>
+        <span class="marker online-marker"></span>
+    </figure>
+    <div class="px-2 mt-2 d-flex flex-column text-white ">
+        <div class="font-4 ">John</div>
+        <div class="font-5 mt-1 custom-mute">online</div>
+    </div>
+</div>
+<div class="px-3 my-3 py-2 member-bg d-flex position-relative">
+    <figure class="member-img my-0 py-0 position-relative ">
+        <img src="" alt="NA"/>
+        <span class="marker offline-marker"></span>
+    </figure>
+    <div class="px-2 mt-2 d-flex flex-column text-white ">
+        <div class="font-4 ">John</div>
+        <div class="font-5 mt-1 custom-mute">offline</div>
+    </div>
+</div>
+{% endblock %}

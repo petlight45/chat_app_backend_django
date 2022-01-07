@@ -1,0 +1,138 @@
+* {
+    font-family: 'Roboto', serif;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.header-bg {
+    background: rgb(79, 106, 134);
+    background: linear-gradient(90deg, rgb(56, 94, 135) 0%, rgb(40, 57, 102) 50%, rgb(23, 28, 65) 100%);
+}
+
+.header-bg-2 {
+    background: linear-gradient(90deg, rgb(40, 57, 102) 0%, rgb(23, 28, 65) 100%);
+}
+
+.body-bg {
+    background: rgb(82, 109, 139);
+    background: linear-gradient(90deg, rgba(82, 109, 139, 1) 0%, rgba(80, 95, 136, 1) 50%, rgba(77, 84, 131, 1) 100%);
+}
+
+.member-bg {
+    background: rgb(79, 106, 134);
+    background: linear-gradient(90deg, rgba(79, 106, 134, 1) 0%, rgb(61, 82, 138) 50%, rgb(61, 82, 138) 100%);
+    transition: background 0.5s linear;
+    cursor: pointer;
+}
+
+.member-bg:hover {
+    background: linear-gradient(90deg, rgb(56, 94, 135) 0%, rgb(40, 57, 102) 50%, rgb(23, 28, 65) 100%);
+}
+
+.chat-members {
+    width: 25.0rem !important;
+}
+
+.font-1 {
+    font-size: 1.1rem;
+    font-family: 'Merriweather', serif;
+}
+
+.font-2 {
+    font-size: 1.0rem;
+    font-family: 'Roboto', serif;
+}
+
+.font-3 {
+    font-size: 0.7rem;
+    font-family: 'Roboto', serif;
+}
+
+.font-4 {
+    font-size: 0.78rem;
+    font-family: 'Roboto', serif;
+}
+
+.font-5 {
+    font-size: 0.65rem;
+    font-family: 'Roboto', serif;
+}
+
+.font-6 {
+    font-size: 0.85rem;
+    font-family: 'Roboto', serif;
+}
+
+.members-body {
+    overflow-y: scroll;
+}
+
+.chat-img {
+    width: 10.0rem;
+    height: 10.0rem;
+}
+
+.member-img {
+    width: 7.0rem;
+    height: 7.0rem;
+}
+
+.chat-img img,
+.member-img img {
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.custom-mute {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.marker {
+    display: inline-block;
+    border-radius: 50%;
+    width: 1.0rem;
+    height: 1.0rem;
+    position: absolute;
+    bottom: 0.0rem;
+    right: 0.0rem;
+}
+
+.online-marker {
+    background-color: #5cb85c;
+}
+
+.offline-marker {
+    background-color: #d9534f;
+}
+
+.message-box {
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.message {
+    border-radius: 2.0rem;
+}
+
+.message:focus {
+    outline: none;
+}
+
+.chat-messages {
+    overflow-y: scroll;
+}
+
+.chat-body-wrapper{
+    height: 100vh !important;
+}
+
+.chat-body{
+    overflow: hidden;
+}

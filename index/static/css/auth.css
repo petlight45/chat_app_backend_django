@@ -1,0 +1,70 @@
+.login-wrapper{
+    background-image: linear-gradient(90deg, rgb(40, 57, 102) 0%, rgb(23, 28, 65) 100%);
+    background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form-wrapper{
+    width:75%;
+    margin-top: 4.0rem;
+    border-radius: 1.0rem;
+}
+
+@media(min-width:50.0rem){
+    .form-wrapper{
+        width: 40.0rem;
+    }
+}
+
+
+@media(min-width:90.0rem){
+    .form-wrapper{
+        width: 50.0rem;
+    }
+}
+
+.form-header{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.form-label{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.form-alert{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.loader {
+    border: 0.5rem solid #f3f3f3; /* Light grey */
+    border-top: 0.5rem solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 3.0rem;
+    height: 3.0rem;
+    animation: spin 0.5s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+.username-prompt-label{
+    display: block;
+    text-align: center;
+    margin: 0.8rem 0;
+    font-size: 1.2rem !important;
+}
+
+.form-prompt-label{
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}

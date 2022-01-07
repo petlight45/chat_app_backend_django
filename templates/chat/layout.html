@@ -1,0 +1,64 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% load filters__ %}
+{% block extra_links %}
+<link rel="stylesheet" href="{% static 'css/message.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="d-flex full-height">
+        <div class="chat-members h-100 flex-column pb-3 header-bg d-none d-sm-flex">
+            <div class=" members-header header-bg ">
+                <div class="px-3 py-3 text-white ">
+                    <span class="font-1 ">Chat Members</span>
+                </div>
+            </div>
+            <div class="members-body body-bg flex-grow-1 ">
+                {% include "chat/members.html" %}
+            </div>
+        </div>
+        <div class="flex-grow-1 chat-body-wrapper h-100 d-flex flex-column ">
+            <div class="chat-body-header header-bg ">
+                <div class=" members-header header-bg-2 d-flex justify-content-between">
+                    {% include "chat/title.html" %}
+                    <div class="px-3 py-3 text-white d-flex flex-column align-items-center">
+                        {% include "chat/admin.html" %}
+                    </div>
+                </div>
+            </div>
+            <div class="chat-body flex-grow-1 body-bg position-relative d-flex flex-column ">
+                <div class="chat-messages flex-grow-1 h-100 p-3">
+                    {% include "chat/messages.html" %}
+                </div>
+            </div>
+
+            {% include "chat/message_box.html" %}
+        </div>
+    </div>
+</div>
+{{ room_name|json_script:"room-name" }}
+<script>
+        const roomName = JSON.parse(document.getElementById('room-name').textContent);
+        const chatSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/chat/'
+            + roomName
+            + '/'
+        );
+
+        chatSocket.onopen = (e)=>{
+            console.log(e, "connected")
+        }
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            document.querySelector('#chat-log').value += (data.message + '\n');
+        };
+
+        chatSocket.onclose = function(e) {
+            console.error('Chat socket closed unexpectedly');
+        };
+
+</script>
+{% endblock %}
