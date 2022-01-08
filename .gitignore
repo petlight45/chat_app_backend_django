@@ -4,3 +4,4 @@ media
 venv
 Dockerfile
 .dockerignore
+requirements.txt
