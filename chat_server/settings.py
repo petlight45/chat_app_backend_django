@@ -72,7 +72,7 @@ TEMPLATES = [
         },
     },
 ]
-
+print((os.getenv("REDIS_HOST"), int(os.getenv("REDIS_PORT"))))
 WSGI_APPLICATION = 'chat_server.wsgi.application'
 ASGI_APPLICATION = 'chat_server.asgi.application'
 CHANNEL_LAYERS = {
@@ -141,11 +141,9 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static')
 ]
-
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
