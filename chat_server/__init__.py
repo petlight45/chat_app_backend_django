@@ -1,6 +1,4 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-print(os.getcwd())
-raise ZeroDivisionError
-load_dotenv("env/.env")
+load_dotenv(dotenv_path=os.path.join(os.getcwd(), "env", ".env"))
