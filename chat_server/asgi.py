@@ -3,7 +3,6 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 print(os.getcwd())
-raise ZeroDivisionError
 load_dotenv("env/.env")
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chat_server.settings')
 
