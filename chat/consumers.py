@@ -74,6 +74,7 @@ def update_last_seen(user):
 
 
 online_users = set()
+temp_persist_users = set()
 
 
 class ChatConsumer(WebsocketConsumer):
@@ -86,17 +87,29 @@ class ChatConsumer(WebsocketConsumer):
             self.global_group_name,
             self.channel_name
         )
-        online_users.add(self.scope.get('user').id)
-        async_to_sync(self.channel_layer.group_send)(
-            self.global_group_name,
-            {
-                'type': 'online_users',
-                "data": json.dumps(list(online_users))
-            }
-        )
         self.accept()
+        if self.scope.get('user').id in online_users:
+            temp_persist_users.add(self.scope.get('user').id)
+            self.send(text_data=json.dumps({
+                "type": "log_user_out",
+                "data": {
+                    'message': "The user is already authenticated"
+                }
+            }))
+        else:
+            online_users.add(self.scope.get('user').id)
+            async_to_sync(self.channel_layer.group_send)(
+                self.global_group_name,
+                {
+                    'type': 'online_users',
+                    "data": json.dumps(list(online_users))
+                }
+            )
 
     def disconnect(self, close_code):
+        if self.scope.get("user").id in temp_persist_users:
+            temp_persist_users.remove(self.scope.get("user").id)
+            return
         update_last_seen(self.scope.get("user"))
         try:
             online_users.remove(self.scope.get('user').id)
